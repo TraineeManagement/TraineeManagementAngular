@@ -1,0 +1,31 @@
+<div class="my-5">
+  <div class="mx-auto w-25" style="max-width: 100%;">
+    <h2 class="text-center mb-3">Update Course</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="col-md-12 form-group mb-3">
+          <label for="course_name" class="form-label">Course Name</label>
+          <input id="course_name" formControlName="course_name" type="text" name="course_name" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group mb-3">
+          <label for="course_fee" class="form-label">Course Fee</label>
+          <input id="course_fee" formControlName="course_fee" type="text" name="course_fee" class="form-control" [placeholder]="course?.course_fee" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group mb-3">
+          <label for="course_duration" class="form-label">Course Duration</label>
+          <input id="course_duration" formControlName="course_duration" type="text" name="course_duration" class="form-control" [placeholder]="course?.course_duration" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn btn-primary w-100" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-sidenav></app-sidenav>

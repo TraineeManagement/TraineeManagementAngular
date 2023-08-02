@@ -1,0 +1,37 @@
+.card{
+  max-width: 35rem;
+  max-height: 100%;
+  margin-left: 35rem;
+  margin-top: 5rem;
+}
+
+button .submit{
+  padding: 0.5rem;
+}
+
+
+
+.labelname{
+  margin-top: 0.6rem;
+}
+
+.arrowbutton{
+  border: none;
+  margin-right: 1rem;
+  background-color: rgb(203, 220, 236);
+}
+/* #buttons{
+   gap: 2rem;
+} */
+.text-center{
+  margin-left: 14rem;
+}
+
+ #button{
+margin-top: -3.5rem;
+margin-left: 1rem;
+}
+.clear{
+  margin-top: -1.9rem;
+  margin-left: 9rem;
+}

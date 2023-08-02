@@ -1,0 +1,213 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#content{
+  width: 800px;
+  height: 100px;
+
+  justify-content: center;
+  align-items: center;
+
+
+  text-align: center;
+  position: relative;
+  left:500px;
+}
+#card{
+  width: 400px;
+  box-shadow: 0 3px 8px 0 #53efbd;
+
+}
+#addtop{
+  position:relative;
+margin-left: 50rem;
+margin-top: -1rem;
+background: rgb(63,81,181);
+color: white;
+
+
+}
+
+.field{
+  width:60%;
+}
+#view{
+  position: relative;
+  top:100px;
+
+}
+table{
+position: relative;
+right: 180px;
+  width:750px;
+  border: 2px;
+margin-top: -8rem;
+}
+.edit{
+  color:#53efbd;
+}
+.delete{
+  color:red;
+}
+
+dis{
+  display: inline-block;
+
+
+}
+#add{
+position: relative;
+margin-left: 58rem;
+margin-top: -7.7rem;
+background: rgb(63,81,181);
+color: white;
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.blur-background {
+  position: absolute;
+  left:50px;
+  z-index: 1;
+
+}
+
+.blur-background::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the background color and opacity as needed */
+  backdrop-filter: blur(2px); /* Adjust the blur strength as needed */
+  z-index: -1;
+ }
+
+button{
+  margin: 5px;
+}
+#subject{
+  display: flex;
+  top:10rem;
+  background: #53efbd;
+}
+.table {
+box-shadow: 0 2px 8px 0 #53efbd;
+}
+#eye{
+color: blue;
+}
+#topics{
+position: absolute;
+width:300px;
+left: 670px;
+}
+#fix{
+position: absolute;
+border: none;
+width:10px;
+color: red;
+}
+#dis{
+position:fixed;
+top:10rem;
+}
+li{
+  list-style: none;
+}
+.center-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	/****** center box
+	width: 300px;
+	height: 300px;
+	border: solid 1px #aaa;
+	******/
+}
+.loader-circle-11 {
+	position: relative;
+	width: 70px;
+	height: 70px;
+	transform-style: preserve-3d;
+	perspective: 400px;
+}
+.loader-circle-11 .arc {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border-bottom: 5px solid #f00;
+}
+.loader-circle-11 .arc:nth-child(1) {
+	animation: rotate1 1.15s linear infinite;
+}
+.loader-circle-11 .arc:nth-child(2) {
+	animation: rotate2 1.15s linear infinite;
+}
+.loader-circle-11 .arc:nth-child(3) {
+	animation: rotate3 1.15s linear infinite;
+}
+.loading .arc:nth-child(1) {
+	animation-delay: -0.8s;
+}
+.loader-circle-11 .arc:nth-child(2) {
+	animation-delay: -0.4s;
+}
+.loader-circle-11 .arc:nth-child(3) {
+	animation-delay: 0s;
+}
+@keyframes rotate1 {
+	from {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(0);
+	}
+	to {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(1turn);
+	}
+}
+@keyframes rotate2 {
+	from {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(0);
+	}
+	to {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(1turn);
+	}
+}
+@keyframes rotate3 {
+	from {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(0);
+	}
+	to {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(1turn);
+	}
+}
+.blur-backgrounds{
+  backdrop-filter: blur(2px); /* Apply the blur effect */
+  background-color: rgba(0, 0, 0, 0.059); /* Set the background color with transparency */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999; /* Ensure the blurred div stays on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

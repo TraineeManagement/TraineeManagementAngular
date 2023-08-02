@@ -1,0 +1,42 @@
+<div class="my-5">
+  <div class="mx-auto w-25" style="max-width: 100%;">
+    <h2 class="text-center mb-3">Update Batch</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <!-- Batch Name -->
+      <div class="row">
+        <div class="col-md-12 form-group mb-3">
+          <label for="batch_name" class="form-label">Batch Name</label>
+          <input id="batch_name" formControlName="batch_name" type="text" name="batch_name" class="form-control" [placeholder]="batch?.batch_name" required>
+        </div>
+      </div>
+
+      <!-- Branch -->
+<div class="row">
+  <div class="col-md-12 form-group mb-3">
+    <label for="branch_name" class="form-label">Branch  Name</label>
+    <select id="branch_name" formControlName="branch" class="form-control" required>
+      <option value="" disabled selected>Select Branch</option>
+      <option *ngFor="let branch of branches" [value]="branch.branch_id">{{ branch.branch_name }}</option>
+    </select>
+  </div>
+</div>
+      <!-- Course Name -->
+      <div class="row">
+        <div class="col-md-12 form-group mb-3">
+          <label for="course_name" class="form-label">Course  Name</label>
+          <select id="course_name" formControlName="course" class="form-control" required>
+            <option value="" disabled selected>Select Course</option>
+            <option *ngFor="let course of courses" [value]="course.course_id">{{ course.course_name }}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button [disabled]="!form.valid" class="btn btn-primary w-100" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

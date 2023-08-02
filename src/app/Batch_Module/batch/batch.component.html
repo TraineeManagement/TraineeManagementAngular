@@ -1,0 +1,183 @@
+
+    <!--Navbar consists only Home and Add User-->
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <div class="container-fluid" >
+          <a class="navbar-brand" >Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page">Home</a>
+              <a class="nav-link"   >Add Batch</a>
+            </div>
+          </div>
+        </div>
+      </nav> -->
+      <!--Table to display all the Batches-->
+        <!--container-->
+        <div class="container"   id="view">
+          <div class="row">
+              <div class="col-md-12">
+                  <h1 class="text-center">View Batches</h1>
+                  <!--Add button -->
+                  <button class="btn btn-primary"routerLink="/batchhome/addbatch" (click)="hide()" id="add" style="background: rgb(63,81,181); color: white;">Add Batch</button>
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Id</th>
+                          <th scope="col">Batch Name</th>
+                          <th scope="col">Course Name</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let batch of batches; let i = index">
+                          <td>{{ i+1 }}</td>
+                          <td>{{ batch.batch_name}}</td>
+
+                          <!-- <td>{{ batch.courses[0]?.course_name}}</td> -->
+                          <td>
+                            {{batch.courses!.course_name}}
+
+                          </td>
+
+                          <td>
+                            <button class="btn btn-primary" routerLink="/batchhome/updatebatch/{{batch.batch_id}}">Edit</button>
+                            <button class="btn btn-danger mx-2" (click)="deleteBatch(batch.batch_id!)">Delete</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+      </div>
+          <!-- Navbar consists only Home and Add Batch -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          <a class="nav-link" routerLink="/add">Add Batch</a>
+        </div>
+      </div>
+    </div>
+</nav> -->
+
+<!-- Form to add batch: batchName: string, branch: string, course: string -->
+<div class="my-5" *ngIf="show" >
+    <div class="mx-auto w-25" style="max-width: 100%;">
+        <h2 class="text-center mb-3">Add Batch</h2>
+        <form [formGroup]="form" (ngSubmit)="addBatches()" >
+            <!-- Course -->
+            <div class="row">
+                <div class="col-md-12 form-group mb-3">
+                    <label for="course" class="form-label">Course</label>
+                    <select id="course" formControlName="course" class="form-control" required>
+                        <option value="" disabled selected>Select Course</option>
+                        <option *ngFor="let course of courses" [value]="course.course_id">{{ course.course_name }}</option>
+                    </select>
+                </div>
+            </div>
+
+<!-- Branch -->
+<div class="row">
+<div class="col-md-12 form-group mb-3">
+<label for="branch" class="form-label">Branch</label>
+<select id="branch" formControlName="branch" class="form-control" required>
+  <option value="" disabled selected>Select Branch</option>
+  <option *ngFor="let branch of branches" [value]="branch.branch_id">{{ branch.branch_name }}</option>
+</select>
+</div>
+</div>
+
+
+            <!-- Batch Name -->
+            <div class="row">
+                <div class="col-md-12 form-group mb-3">
+                    <label for="batchName" class="form-label">Batch Name</label>
+                    <input id="batchName" formControlName="batch_name" type="text" name="batchName" class="form-control" placeholder="Batch Name" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <button class="btn btn-secondary w-100" type="button" (click)="goBack()">Back</button>
+                </div>
+                <div class="col-md-6 form-group">
+                    <input [disabled]="!form.valid" class="btn btn-primary w-100" type="submit" value="Add Batch">
+                </div>
+            </div>
+            <!-- (click)="goBack()" -->
+        </form>
+    </div>
+</div>
+
+    <!-- Navbar consists only Home and Add Batch
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+            <a class="nav-link" routerLink="/add">Add Batch</a>
+          </div>
+        </div>
+      </div>
+  </nav>
+
+  < Form to add batch: batchName: string, branch: string, course: string -->
+  <!-- <div class="my-5">
+      <div class="mx-auto w-25" style="max-width: 100%;">
+          <h2 class="text-center mb-3">Add Batch</h2>
+          <form [formGroup]="form" (ngSubmit)="addBatches()">
+              <! Course -->
+              <!-- <div class="row">
+                  <div class="col-md-12 form-group mb-3">
+                      <label for="course" class="form-label">Course</label>
+                      <select id="course" formControlName="course" class="form-control" required>
+                          <option value="" disabled selected>Select Course</option>
+                          <option *ngFor="let course of courses" [value]="course.course_id">{{ course.course_name }}</option>
+                      </select>
+                  </div>
+              </div> -->
+
+<!-- Branch -->
+<!-- <div class="row">
+<div class="col-md-12 form-group mb-3">
+  <label for="branch" class="form-label">Branch</label>
+  <select id="branch" formControlName="branch" class="form-control" required>
+    <option value="" disabled selected>Select Branch</option>
+    <option *ngFor="let branch of branches" [value]="branch.branch_id">{{ branch.branch_name }}</option>
+  </select>
+</div>
+</div>
+              <!- Batch Name -->
+              <!-- <div class="row">
+                  <div class="col-md-12 form-group mb-3">
+                      <label for="batchName" class="form-label">Batch Name</label>
+                      <input id="batchName" formControlName="batch_name" type="text" name="batchName" class="form-control" placeholder="Batch Name" required>
+                  </div>
+              </div> -->
+
+              <!-- <div class="row">
+                  <div class="col-md-6 form-group">
+                      <button class="btn btn-secondary w-100" type="button" (click)="goBack()">Back</button>
+                  </div>
+                  <div class="col-md-6 form-group">
+                      <input [disabled]="!form.valid" class="btn btn-primary w-100" type="submit" value="Add Batch">
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+
+-->
+<app-sidenav></app-sidenav>

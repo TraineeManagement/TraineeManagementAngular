@@ -1,0 +1,70 @@
+<!-- <button class="arrowbutton">
+  <mat-icon>arrow_back</mat-icon>
+</button> -->
+
+<mat-card color="primary" class="card mat-elevation-z8" style="height: 300px; width: 400%; display: flex; justify-content: center; align-items: center;">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" (reset)="onReset()">
+    <mat-card-content>
+      <h2 style="text-align: center">
+        <b>ADD BRANCH</b>
+      </h2>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-75 form-group labelname">
+            <label for="selectedLocation" style="margin-right: 10px">Select Location</label>
+          </div>
+          <div class="col form-group">
+            <mat-select class="form-control" formControlName="selectedLocation" placeholder="Available Locations">
+              <mat-option *ngFor="let loc of locations" [value]="loc.location_id">{{ loc.city }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-75 form-group labelname">
+          <label for="branch_name" style="margin-right: 22px">Branch Name</label>
+        </div>
+        <div class="col-75 form-group">
+          <input class="form-control" type="text" formControlName="branch_name" placeholder="Enter Branch" (input)="convertToUpperCase($event)" />
+          <div class="invalid-feedback">
+            <div>Field required</div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <div class="text-center">
+        <button class="btn btn-success btn-sm submit" type="submit" >Create Branch</button></div>
+        <div class="clear">
+        <button class="btn btn-warning btn-sm ml-4" type="reset" >Clear</button></div>
+        <button class="btn btn-secondary btn-sm ml-4" id="button" (click)="goBack()">Go back</button>
+
+    </mat-card-content>
+  </form>
+</mat-card>
+<app-Administration></app-Administration>
+
+
+
+
+
+
+<!-- <div class="col form-group">
+            <input class="form-control" type="text" formControlName="name"
+            [ngModel]="selectedLocation" placeholder="Enter location" (input)="convertToUppercase()">
+
+            <div
+              class="invalid-feedback">
+              <div >Location required</div>
+            </div>
+          </div> -->
+
+
+<!-- [(ngModel)]="selectedLocation" -->
+          <!-- <div class="col form-group">
+  <mat-select class="form-control" [(ngModel)]="locations"  name="selectedLocation" placeholder="Available Locations">
+    <mat-option *ngFor="let loc of locations" >{{ loc.city }}</mat-option>
+
+  </mat-select>
+</div> -->

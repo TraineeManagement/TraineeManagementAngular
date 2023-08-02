@@ -1,0 +1,33 @@
+.form{
+  display: flex;
+     margin-left: 25rem;
+     margin-top: 15rem;
+}
+
+.table{
+  /* display:; */
+  margin-top: 5rem;
+  margin-left: 18rem;
+  width: 70%;
+
+}
+.form-group{
+  width: 10%;
+  margin-left: 25rem;
+  margin-top: 5rem;
+
+}
+/* :host ::ng-deep .table thead {
+  background-color: #001933 !important;
+  color: white !important;
+} */
+
+.custom-thead {
+  background-color: #001933;
+  color: white;
+}
+
+#back{
+  margin-left: 60rem;
+  margin-top: -2rem;
+}

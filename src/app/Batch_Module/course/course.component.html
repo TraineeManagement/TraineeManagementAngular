@@ -1,0 +1,87 @@
+<div id="top">
+  <!-- <button id="add-button" style="margin-left:6rem;" mat-button routerLink="/batchhome/addcourses" >
+    <mat-icon><mat-icon>add_circle_outline</mat-icon></mat-icon>Add Course</button> -->
+    <button type="button" class="btn btn-success" style="background:rgb(63,81,181); color: white;" routerLink="/batchhome/addcourses" >Add Course</button>
+
+</div><br><br>
+<div id="subjects">
+<button type="button" class="btn btn-success"  style="background: rgb(63,81,181); color: white;" routerLink="/batchhome/viewsubjects" >view Course</button>
+</div>
+<br><br><br><br><br>
+
+
+<!-- <div class="mt-4 mb-4" class="allign" *ngIf="addShow">
+  <div id="sp" *ngFor="let course of getCourses()" >
+
+  <div class="warapper" >
+   <div class="div1 ml-2" >
+        <mat-card class="card ml-2" >
+           <!-- <mat-card-header>
+           <div mat-card-avatar><img src="./assets/java.png" alt="icon" height="50px" width="50px"></div>
+
+
+          </mat-card-header> -->
+
+          <!---- <mat-card-content>
+          <h3>Course Name: {{course.course_name}}</h3>
+          <h3>Course Fee:{{course.course_fee}}</h3>
+          <h3>Course Duration:{{course.course_duration}}</h3>
+
+          </mat-card-content>
+
+
+         <mat-card-actions>
+            <button id="add-button" style="margin-left:6rem;" mat-button (click)="hide()">
+              <mat-icon><mat-icon>remove_red_eye</mat-icon></mat-icon>view details</button>
+          </mat-card-actions>
+
+
+        </mat-card>
+   </div>
+ </div>
+</div>
+</div> -->
+
+
+
+
+<!-- <div class="form-group" >
+<input type="text"  [(ngModel)]="searchText" class="form-control" placeholder="Search course" >
+
+</div> -->
+<table class="table" >
+<thead>
+<tr>
+
+  <th scope="col" >course Name</th>
+  <th scope="col">Course Fee</th>
+  <th scope="col">Course Duration</th>
+  <th scope="col">Action</th>
+
+
+</tr>
+</thead>
+
+
+
+<tbody  *ngFor="let course of courses" >
+
+<tr >
+  <td scope="row">{{ course.course_name}}</td>
+  <td>{{ course.course_fee }}</td>
+  <td>{{ course.course_duration}}</td>
+  <td>
+    <button class="btn btn-primary" routerLink="/batchhome/updatecourse/{{course.course_id}}/">Edit</button>
+    <button class="btn btn-danger mx-2" (click)="deleteCourse(course.course_id!)">Delete</button>
+
+
+
+  </td>
+
+</tr>
+
+</tbody>
+<!-- <pagination-controls (pageChange)="p =$event"></pagination-controls> -->
+</table>
+<!-- <router-outlet></router-outlet> -->
+<app-sidenav></app-sidenav>

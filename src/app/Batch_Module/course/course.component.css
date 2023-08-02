@@ -1,0 +1,133 @@
+.card {
+  width: 23rem;
+  height:15rem;
+  padding-left:1rem;
+  padding-right:1rem;
+  border-radius: 1rem;
+  /* background-color: rgb(104, 179, 249); */
+  background-color: #ffffff;
+  text-align:center;
+
+}
+.card:hover{
+  transform: translateY(-2px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(93, 223, 240, 0.11),
+              0 2px 4px #91d9eb;
+}
+#top{
+  margin-left: 60rem;
+  margin-top: -5rem;
+  position: relative;
+
+
+}
+#add{
+  margin-left: 400px;
+  position:relative;
+}
+.form-group1{
+  margin-left:300px;
+  width:120px;
+  height:80px;
+  position:relative;
+  top:70px;
+}
+
+.form-control{
+  width:500px;
+
+}
+#submit{
+  margin-left:350px;
+  position:relative;
+  top:80px;
+}
+
+.allign{
+    position:relative;
+    left:200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    margin-left: 3rem;
+    margin-top: 3rem;
+
+     padding:3px;
+
+  }
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100vh; /* Adjust the height if needed * */
+    /* display: flex;
+    margin-left: 15rem;
+     margin-top: 4rem;
+     padding:3px; */
+  /* display: flex;
+   flex-direction: column;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+
+  margin: 15px;
+  padding: 15px;
+  border-radius: 1rem; */
+
+
+
+#add-button:hover{
+
+  color: white;
+  background-color: blue;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns:repeat(2,2fr);
+}
+/* .div2{
+  margin-top: -12rem;
+  margin-left: 26rem;
+} */
+#sp{
+  padding: 5px;
+}
+/* ************************************8 */
+.form{
+  display: flex;
+     margin-left: 25rem;
+     margin-top: 15rem;
+}
+
+.table{
+  /* display:; */
+  margin-top: -1rem;
+  margin-left: 19rem;
+ width:70%;
+
+}
+.form-group{
+  width: 10%;
+  margin-left: 15rem;
+  margin-top: 5rem;
+}
+/* :host ::ng-deep .table thead {
+  background-color: #001933 !important;
+  color: white !important;
+} */
+
+.custom-thead {
+  background-color: #001933;
+  color: white;
+}
+#serach{
+ margin-top: 1rem;
+}
+#subjects{
+  margin-left: 70rem;
+  margin-top: -4.8rem;
+  position: relative;
+
+}

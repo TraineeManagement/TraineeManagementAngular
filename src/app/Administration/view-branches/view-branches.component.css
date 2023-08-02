@@ -1,0 +1,42 @@
+.card {
+  width: 23rem;
+  height:12rem;
+  padding-left:1rem;
+  padding-right:1rem;
+  border-radius: 1rem;
+  /* background-color: rgb(104, 179, 249); */
+  background-color: #ffffff;
+  text-align:center;
+
+}
+.card:hover{
+  transform: translateY(-2px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(93, 223, 240, 0.11),
+              0 2px 4px #91d9eb;
+}
+
+.allign{
+     display: flex;
+     margin-left: 18rem;
+     margin-top: -1rem;
+}
+
+#add-button:hover{
+  background-color: #00CCCC;
+  color: white;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns:repeat(2,2fr);
+}
+.div2{
+  margin-top: -12rem;
+  margin-left: 26rem;
+}
+
+.div3{
+  margin-top: 50px;
+
+}

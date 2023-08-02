@@ -1,0 +1,126 @@
+<div class="form-container">
+  <form
+    class="example-form"
+    [formGroup]="traineeForm"
+    (submit)="submitTrainee()"
+  >
+    <!-- <h1>Trainee Registration Form</h1> -->
+    <table>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Name </mat-label>
+            <input matInput value="Siva" formControlName="trainee_name" placeholder="Enter Your Name" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Age </mat-label>
+            <input matInput value="12" formControlName="trainee_age" placeholder="Enter Your Age"/>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile Number </mat-label>
+            <input matInput value="" formControlName="trainee_phonenumber" placeholder="Enter Your Phone number"/>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Email </mat-label>
+            <input matInput value="" formControlName="trainee_email" placeholder="Ex. jhon12@gmail.com" />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <mat-radio-group
+          aria-label="Select an option"
+          class="example-full-width"
+          formControlName="trainee_gender"
+          aria-placeholder="select Gender"
+        >
+          <td>
+            <mat-label>Gender</mat-label>
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </td>
+        </mat-radio-group>
+      </tr>
+    </table>
+    <table formGroupName="address_id">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Door Number</mat-label>
+            <input matInput placeholder="Door No" formControlName="door_no" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Street</mat-label>
+            <input matInput placeholder="Street" formControlName="street" />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. mexico " formControlName="city" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>state</mat-label>
+            <input
+              matInput
+              placeholder="Ex. California"
+              formControlName="state"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>pincode</mat-label>
+            <input matInput placeholder="00000" formControlName="pincode" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>locality</mat-label>
+            <input matInput placeholder="" formControlName="locality" />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <!-- Form controls for interviewer information -->
+
+    <mat-form-field>
+      <mat-label>Select Batch</mat-label>
+      <mat-select formControlName="batch_id">
+        <mat-option
+          *ngFor="let batch of getBatches(); let i = index"
+          [value]="batch.batch_id"
+        >
+          {{ batch.batch_name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="flex-center">
+      <button mat-raised-button type="submit" color="primary" >
+        {{ submitType }}
+      </button>
+      <button mat-raised-button mat-dialog-close type="button" color="warn">
+        Close
+      </button>
+    </div>
+  </form>
+</div>

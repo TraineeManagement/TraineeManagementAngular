@@ -1,0 +1,139 @@
+<button  type="button" class="btn btn-info" (click)="top()" id="addtop" >Add topics</button><br><br><br><br>
+<button type="button" class="btn btn-info" id="add" (click)="hide()">Add Subject</button><br><br><br><br>
+<div id="content" >
+  <!-- <button  type="button" class="btn btn-primary" (click)="top()" id="addtop">Add topics</button> -->
+<div class="blur-background" [hidden]="!show">
+     <div id="form" >
+    <mat-card id="card">
+        <mat-card-title>Add Subject</mat-card-title>
+        <br>
+        <mat-card-content id="card_content">
+          <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+            <form [formGroup]="loginForm" (ngSubmit)="saveSubject()">
+              <div>
+            <mat-form-field class="field" >
+              <mat-label>subject</mat-label>
+              <input matInput type="text" formControlName="subject_name" [(ngModel)]="subject.subject_name" required>
+            </mat-form-field>
+            </div>
+
+                    <div>
+                     <button  type="submit" class="btn btn-primary">save</button>
+                     <button type="button" class="btn btn-danger" (click)="hide()">cancel</button>
+
+                      </div>
+        </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>
+<div id="view" >
+  <div id="subject">
+  </div>
+  <table class="table">
+    <thead class="table-dark">
+     <tr>
+     <th>Id</th>
+     <th>Subject</th>
+     <th>Trainer</th>
+     <th>Topics</th>
+     <th> Action</th>
+     </tr>
+     </thead>
+    <tbody>
+     <tr *ngFor="let subject of subjects ">
+      <td id="subid">{{subject.subject_id}}</td>
+      <td id="name">{{subject.subject_name}}</td>
+      <td id="trainer">
+        <ul *ngIf="subject.trainer">
+          <li *ngFor="let trainer of subject.trainer">{{trainer.trainer_name}}</li>
+        </ul>
+      </td>
+      <td id="io"><i class="fa fa-eye" aria-hidden="true" id="eye" (click)="view(subject.subject_id)"></i>
+
+        <div id="topics" *ngIf="iconMap[subject.subject_id]" >
+          <ul *ngIf="getTopic(subject.subject_id)" [hidden]="icon">
+            <ng-container  >
+              <li  *ngFor="let topic of getTopic(subject.subject_id)">{{topic.topic_name}}</li>
+            </ng-container>
+          </ul>
+        </div>
+      </td>
+
+
+      <td ><a (click)="delete(subject.subject_id)"><i class="fa fa-trash" aria-hidden="true" id="fix" ></i></a></td>
+
+     </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+<div class="blur-background" [hidden]="cl">
+  <div id="dis"  >
+ <mat-card id="card">
+     <mat-card-title>Add Topic</mat-card-title>
+     <br>
+     <mat-card-content id="card_content">
+       <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+         <form [formGroup]="loginForm" (ngSubmit)="saveTopic()">
+           <div>
+         <mat-form-field class="field" >
+           <mat-label>Topic</mat-label>
+           <input matInput type="text" formControlName="subject_name" [(ngModel)]="topic.topic_name" required>
+           <!-- <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+           <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</mat-error> -->
+         </mat-form-field>
+         </div>
+
+
+                 <div>
+                     <mat-form-field class="field">
+                         <mat-label>subject</mat-label>
+                         <mat-select (selectionChange)="onTrainerSelection($event)"  (click)="sel()">
+                          <div [hidden]="select">
+                           <mat-option *ngFor="let subject of subjects" [value]="subject.subject_id" >{{subject.subject_name}}</mat-option>
+                           <button  type="submit" class="btn btn-primary" (click)="sel()">cancel</button>
+                           </div>
+                          </mat-select>
+
+                     </mat-form-field>
+                 </div>
+
+                 <div>
+                  <button  type="submit" class="btn btn-primary">save</button>
+                  <button type="button" class="btn btn-danger" (click)="top()">cancel</button>
+
+                   </div>
+     </form>
+ </mat-card-content>
+</mat-card>
+</div>
+</div>
+
+<div *ngIf="isLoading">
+  <!-- <div class="loading-circle"></div>
+    <div class="loading-circle"></div>
+    <div class="loading-circle"></div> -->
+   <div class="center-body">
+      <div class="blur-backgrounds">
+      <div class="loader-circle-11">
+        <div class="arc"></div>
+        <div class="arc"></div>
+        <div class="arc"></div>
+      </div>
+      </div>
+      </div>
+  </div>
+
+
+
+</div>
+<app-sidenav></app-sidenav>

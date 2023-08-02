@@ -1,0 +1,52 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start start">
+  <div fxFlex="50" fxFlex.xs="100">
+
+    <div class="sidenav" *ngIf="getIsSidenavVisible()">
+
+      <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+        <div class="logo-container">
+            <button class="logo" (click)="toggleCollapse()">S</button>
+            <div class="logo-text" @fadeInOut *ngIf="collapsed">SimpleLearn</div>
+            <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+              <i class="fa fa-times close-icon"></i>
+                  </button>
+        </div>
+        <div class="scrollwrap scrollwrap_delayed">
+            <ul class="sidenav-nav">
+                <li class="sidenav-nav-item" *ngFor="let data of navData">
+                    <a class="sidenav-nav-link" (click)="handleClick(data)"
+                        *ngIf="data.items && data.items.length > 0"
+                        [ngClass]="getActiveClass(data)"
+                    >
+                        <i class="sidenav-link-icon" [class]="data.icon"></i>
+                        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                            {{data.label}}
+                        </span>
+                        <i *ngIf="data.items && collapsed" class="menu-collapse-icon"
+                            [ngClass]="!data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'"
+                        ></i>
+                    </a>
+
+                    <a class="sidenav-nav-link"
+                        *ngIf="!data.items || (data.items && data.items.length === 0)"
+                        [routerLink]="[data.routeLink]"
+                        routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}"
+                        (click)="shrinkItems(data)"
+                        >
+                        <i class="sidenav-link-icon" [class]="data.icon"></i>
+                        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                            {{data.label}}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+          </div>
+          <i class="fal fa-home"></i> <!-- Add the Font Awesome icon here -->
+        </div>
+
+
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="my-5">
+  <div class="mx-auto w-25" style="max-width: 100%;">
+
+      <form [formGroup]="form" (ngSubmit)="saveCourse()">
+          <!-- Course Name -->
+          <div class="row">
+              <div class="col-md-12 form-group mb-3">
+                  <label for="courseName" class="form-label">Course Name</label>
+                  <input id="courseName" formControlName="course_name" type="text" name="courseName" class="form-control" placeholder="Course Name" required>
+              </div>
+          </div>
+
+          <!-- Course Fee -->
+          <div class="row">
+              <div class="col-md-12 form-group mb-3">
+                  <label for="courseFee" class="form-label">Course Fee</label>
+                  <input id="courseFee" formControlName="course_fee" type="text" name="courseFee" class="form-control" placeholder="Course Fee" required>
+              </div>
+          </div>
+
+          <!-- Course Duration -->
+          <div class="row">
+              <div class="col-md-12 form-group mb-3">
+                  <label for="courseDuration" class="form-label">Course Duration</label>
+                  <input id="courseDuration" formControlName="course_duration" type="text" name="courseDuration" class="form-control" placeholder="Course Duration" required>
+              </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="row">
+              <div class="col-md-4 form-group">
+                  <button class="btn btn-secondary w-90" type="button" (click)="goBack()">Back</button>
+              </div>
+              <div class="col-md-4 form-group">
+                  <input [disabled]="!form.valid" class="btn btn-primary w-110" type="submit" value="Add Course">
+              </div>
+              <div class="col-md-4 form-group">
+                  <input class="btn btn-primary w-90" type="reset" value="Reset">
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
+<app-sidenav></app-sidenav>

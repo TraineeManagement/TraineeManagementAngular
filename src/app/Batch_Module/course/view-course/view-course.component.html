@@ -1,0 +1,50 @@
+<!-- <div >
+
+  <table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">Course Name</th>
+        <th scope="col" align="center">Subject Name</th>
+
+
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let course of getCourses()">
+        <td>{{course.course_name}}</td>
+
+        <div>
+        <td *ngFor="let subject of course.subjects" id="space">
+          {{subject.name}},</td>
+        </div>
+
+        </tr>
+
+    </tbody>
+  </table>
+</div> -->
+<div class="col-md-4 form-group" id="back">
+  <button class="btn btn-secondary w-90" type="button" (click)="goBack()">Back</button>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col">Course Name</th>
+      <th scope="col">Subject Name</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of getCourses()">
+      <td>{{course.course_name}}</td>
+
+      <div>
+      <td *ngFor="let subject of course.subjects" id="space">
+        {{subject.name}},</td>
+      </div>
+
+      </tr>
+  </tbody>
+</table>
+<app-sidenav></app-sidenav>

@@ -1,0 +1,16 @@
+<mat-card class="mat-card">
+  <mat-card-content>
+    <form class="mat-form" (ngSubmit)="addLocation()" [formGroup]="Myform">
+      <mat-form-field>
+        <input matInput placeholder="Enter location" formControlName="city" required
+               (input)="onCityInputChange($event)">
+      </mat-form-field>
+      <div class="button-container">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </div>
+        <button class="btn btn-secondary w-90" type="button" routerLink="/app-view-Branches" id="backButton">Back</button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+<app-Administration></app-Administration>

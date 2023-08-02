@@ -1,0 +1,103 @@
+.header {
+  background-color:  #001933;
+  padding: 10px;
+  color: white;
+  height: 90px; /* Increase the height as needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar {
+  background-color: #001933;
+  color: white;
+  width: 160px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.admin-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.profile-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.larger-icon {
+  font-size: 32px;
+}
+
+.profile-label {
+  font-weight: bold;
+  margin: 0;
+  font-size: 30px;
+  margin-left: 50px;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+
+
+}
+
+.nav-links li {
+  margin-bottom: 5px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+
+}
+
+.dashboard {
+  margin-left: 200px;
+  padding-top: 60px;
+  /* Dashboard styles */
+}
+
+
+.white-text {
+  color: white;
+
+}
+
+.white-text:hover {
+  background-color: #00CCCC;
+  color: white;
+}
+#text{
+  margin-top: -45rem;
+}
+.logout{
+  margin-top: 10px;
+  margin-left: 83rem;
+  font-size: 15px;
+}

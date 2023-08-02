@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="login-page" style="margin-top: 40px;">
+      <mat-card class="mat-elevation-z12" style="opacity: 0.75; height: 80%">
+        <mat-card-title style="text-align: center">SignUp</mat-card-title>
+        <!-- <mat-card-title style="text-align: center" >Forgot Password ?</mat-card-title> -->
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+          <mat-tab label="Sign Up">
+            <mat-card-content>
+              <form
+                [formGroup]="registerForm"
+                (ngSubmit)="registerOne($event)"
+                novalidate
+              >
+                <mat-form-field class="value">
+                  <input
+                    matInput
+                    placeholder="First Name"
+                    pattern="^[a-zA-Z]+$"
+                    name="first_name"
+                    formControlName="first_name"
+                    [(ngModel)]="user.first_name"
+                  />
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error *ngIf="first_name?.invalid"
+                    >firstname is required</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-form-field class="value">
+                  <input
+                    matInput
+                    placeholder="Last Name"
+                    pattern="^[a-zA-Z]+$"
+                    name="last_name"
+                    formControlName="last_name"
+                    [(ngModel)]="user.last_name"
+                  />
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error *ngIf="last_name?.invalid"
+                    >lastname is required</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-form-field class="value">
+                  <input
+                    matInput
+                    placeholder="Email"
+                    name="email"
+                    formControlName="email"
+                    [(ngModel)]="user.email"
+                  />
+                  <mat-error *ngIf="email?.invalid"
+                    >Email is required</mat-error
+                  >
+
+                  <!-- <mat-error *ngIf="email?.errors?.['gte']">Email already exists</mat-error> -->
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field class="value">
+                  <input
+                    matInput
+                    [type]="hidePassword ? 'password' : 'text'"
+                    placeholder="Password"
+                    name="password"
+                    formControlName="password"
+                    [(ngModel)]="user.password"
+                  />
+                  <mat-icon matSuffix (click)="togglePasswordVisibility()">{{
+                    hidePassword ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                  <mat-error *ngIf="password?.errors?.['required']"
+                    >Password is required</mat-error
+                  >
+                  <mat-error *ngIf="password?.errors?.['minlength']"
+                    >Password must be at least 8 characters long</mat-error
+                  >
+                  <mat-error
+                    *ngIf="password?.errors && password?.errors?.['pattern']"
+                    >Please atleast one uppercase letter , one lowercase letter,
+                    at least one digit
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="value">
+                  <input
+                    matInput
+                    placeholder="Phone Number"
+                    type="tel"
+                    pattern="[6-9][0-9]{9}"
+                    maxlength="10"
+                    name="phone_number"
+                    formControlName="phone_number"
+                    [(ngModel)]="user.phone_number"
+                  />
+                  <mat-error
+                    *ngIf="phone_number?.errors && phone_number?.errors?.['required']"
+                    >Phone number is required</mat-error
+                  >
+                  <mat-error
+                    *ngIf="phone_number?.errors && phone_number?.errors?.['pattern']"
+                    >Please enter a valid phone number [6-9]</mat-error
+                  >
+                  <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="value">
+                  <mat-label>Role</mat-label>
+                  <mat-select
+                    [(ngModel)]="user.role"
+                    name="role"
+                    required
+                    formControlName="role"
+                    (ngModelChange)="onRoleChange()"
+                  >
+                    <mat-option value="">Select a role</mat-option>
+                    <mat-option *ngFor="let role of roles" [value]="role">{{
+                      role
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="value">
+                  <mat-label>Branch</mat-label>
+                  <mat-select
+                    [(ngModel)]="user.branch_id"
+                    name="branch_id"
+                    formControlName="branch_id"
+                    required
+                    [disabled]="user.role === 'Admin'"
+                    (ngModelChange)="user.branch_id = $event"
+                  >
+                    <mat-option value="">Select a branch</mat-option>
+                    <mat-option
+                      *ngFor="let branch of branches"
+                      [value]="branch.branch_id"
+                      >{{ branch.branch_name }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+
+                <div style="display: flex;">
+                  <p-toast position="top-center"></p-toast>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    class="login-button"
+                    type="submit"
+                    [disabled]="!registerForm.valid"
+                  >
+                    Sign Up
+                  </button>
+                  <button
+                    routerLink="/app-view-Branches"
+                    color="primary"
+                    class=" back"
+                  >
+                    Back
+                  </button>
+                </div>
+              </form>
+            </mat-card-content>
+          </mat-tab>
+        </mat-tab-group></mat-card
+      >
+    </div>
+  </body>
+</html>

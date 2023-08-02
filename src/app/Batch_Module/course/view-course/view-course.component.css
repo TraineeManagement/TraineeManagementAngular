@@ -1,0 +1,18 @@
+.table{
+  /* display:; */
+  margin-top: -3rem;
+  margin-left: 18rem;
+  width: 50%;
+}
+#space{
+
+  margin-left:30px;
+  position:relative;
+/*    right:20px; */
+ }
+#back{
+  margin-left:60rem;
+  position:relative;
+  top:-70px;
+  width:80px;
+}

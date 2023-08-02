@@ -1,0 +1,125 @@
+<!-- /SIDE NAV -->
+<!-- <header class="header">
+  <div class="navbar">
+    <div class="admin-box">
+
+      <p class="profile-label white-text">SimpleLearn</p>
+    </div>
+    <mat-nav-list class="nav-links">
+      <mat-list-item><a mat-list-item-link href="#" class="white-text" (click)="showBranches($event)" id="text">Administration</a></mat-list-item> -->
+      <!-- <mat-list-item><a mat-list-item-link href="#" class="white-text" id="text" (click)="profile($event)">Profile</a></mat-list-item> -->
+       <!-- <mat-list-item><a mat-list-item-link href="#" class="white-text" id="text" routerLink="/sidenav">Batch</a></mat-list-item>
+
+    </mat-nav-list>
+  </div>
+  <button mat-button class="logout" style="background-color:grey" (click)="logOut($event)">LOG OUT</button>
+</header>
+<div class="dashboard"> -->
+  <!-- Dashboard content -->
+ <!-- </div> -->
+
+
+
+ <!-- --------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <header class="header">
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">SimpleLearn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="showBranches($event)" id="text">Administration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/batchhome" id="text">Batch</a>
+        </li>
+      </ul>
+    </div>
+    <button class="logout" style="background-color:grey" (click)="logOut($event)">LOG OUT</button>
+  </nav>
+</header>
+<div class="dashboard">
+  Dashboard content
+</div> -->
+
+
+<div>
+  <!-- <router-outlet></router-outlet> -->
+  </div>
+
+
+  <!-- ------------------------------------------------ -->
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start start" *ngIf="hide">
+    <div fxFlex="50" fxFlex.xs="100">
+
+      <div class="sidenav" *ngIf="getIsSidenavVisible()">
+
+        <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+          <div class="logo-container">
+              <button class="logo" (click)="toggleCollapse()">S</button>
+              <div class="logo-text" @fadeInOut *ngIf="collapsed">ADMIN</div>
+              <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+                <i class="fa fa-times close-icon"></i>
+                    </button>
+          </div>
+          <div class="scrollwrap scrollwrap_delayed">
+              <ul class="sidenav-nav">
+                  <li class="sidenav-nav-item" *ngFor="let data of navData">
+                      <a class="sidenav-nav-link" (click)="handleClick(data)"
+                          *ngIf="data.items && data.items.length > 0"
+                          [ngClass]="getActiveClass(data)"
+                      >
+                          <i class="sidenav-link-icon" [class]="data.icon"></i>
+                          <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                              {{data.label}}
+                          </span>
+                          <i *ngIf="data.items && collapsed" class="menu-collapse-icon"
+                              [ngClass]="!data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'"
+                          ></i>
+                      </a>
+
+                      <a class="sidenav-nav-link"
+                          *ngIf="!data.items || (data.items && data.items.length === 0)"
+                          [routerLink]="[data.routeLink]"
+                          routerLinkActive="active"
+                          [routerLinkActiveOptions]="{exact: true}"
+                          (click)="shrinkItems(data)"
+                          >
+                          <i class="sidenav-link-icon" [class]="data.icon"></i>
+                          <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                              {{data.label}}
+                          </span>
+                      </a>
+                  </li>
+              </ul>
+            </div>
+            <i class="fal fa-home"></i> <!-- Add the Font Awesome icon here -->
+          </div>
+
+
+        </div>
+
+    </div>
+  </div>
+
+  <div>
+
+    <router-outlet></router-outlet>
+  </div>
+  <!-- <app-sidenav></app-sidenav> -->
